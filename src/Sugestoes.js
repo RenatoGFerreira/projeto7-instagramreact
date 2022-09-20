@@ -9,7 +9,7 @@ function Sugestao(props) {
                 </div>
             </div>
             <div class="seguir">
-                Seguiir
+                Seguir
             </div>
         </div>
     )

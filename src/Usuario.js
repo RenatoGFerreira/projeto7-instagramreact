@@ -1,46 +1,39 @@
 import React, { useState } from "react"
 
 export default function Usuario(props) {
-    let [username, setUsername] = useState(props.username)
-    let [name, setName] = useState(props.name)
-    let [img, setImg] = useState(props.img)
-
-    //let ternario = (name === "" || name === null) ? "Olá sem nome :(" : `Bem-vindo(a), ${name}`
-
-
-    function alterarPerfil() {
-        username = prompt("Novo Username: ")
-        name = prompt("Novo nome do Usuário: ")
-        if (username === "" || username === null) {
-            console.log("Usuário alterado para SemNome")
-            username = 'SemNome'
-
-        } else {
-            console.log(`Usuário alterado para ${username}`)
-            setUsername(username)
-            setName(name)
-        }
-    }
-
-    function alterarFoto() {
-        img = prompt("Insira a URL da foto: ")
-
-        if (img === null) {
-            console.log("URL Inválida")
-        }
-        else {
-            setImg(img)
-        }
-    }
     
+    const [alteraUserName, setUserName] = useState(props.username)
+    const [alteraFotoAtual, setFotoAtual] = useState(props.img)
+
+    function mudaUserName(){
+        const novoNome = prompt("Insira o novo nome de usuário:")
+
+        if(novoNome === null || novoNome === "" || novoNome === false){
+            alert("Escreva um nome de usuário válido.")
+        }else{
+            setUserName(novoNome)
+        }
+    }
+
+    function mudaFotoAtual(){
+        const novaFoto = prompt('Insira o link da nova foto:')
+        if(novaFoto === null || novaFoto === "" || novaFoto === false){
+            alert("Escreva um link de foto válida.")
+        }else{
+            setFotoAtual(novaFoto)
+        }
+
+    }
+
+
     return (
         <div class="usuario">
-            <img src={img} onClick={alterarFoto} alt={name} />
+            <img onClick={mudaFotoAtual} src={alteraFotoAtual} alt={props.name} />
             <div class="texto">
-                <strong>{username}</strong>
+                <strong>{alteraUserName}</strong>
                 <span>
-                    {name}
-                    <ion-icon name="pencil" onClick={alterarPerfil}></ion-icon>
+                    {props.name}
+                    <ion-icon onClick={mudaUserName} name="pencil"></ion-icon>
                 </span>
             </div>
         </div>

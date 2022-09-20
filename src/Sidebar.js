@@ -6,7 +6,7 @@ export default function Sidebar() {
         <div class="sidebar">
 
             <Usuario username='renatoferreira' name='Renato' img="assets/img/userDefault.png" />
-
+            
             <div class="sugestoes">
                 <div class="titulo">
                     Sugestões para você
